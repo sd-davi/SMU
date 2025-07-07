@@ -2,10 +2,12 @@ package ufma.br.sistema_monitoria_ufma.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -18,11 +20,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Data
-@Table(name = "feedback")
+@Table(name = "comentario")
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long comentarioId;
+    @Column(name = "comentario_id")
+    private Integer comentarioId;
 
     private String texto;
     private Integer nota; // opcional
@@ -30,8 +33,10 @@ public class Feedback {
     private LocalDateTime data;
 
     @ManyToOne
+    @JoinColumn(name = "aluno_id")
     private Aluno aluno;
 
     @ManyToOne
+    @JoinColumn(name = "monitoria_id")
     private Monitoria monitoria;
 }

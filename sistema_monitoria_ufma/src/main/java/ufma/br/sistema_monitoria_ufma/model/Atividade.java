@@ -1,5 +1,6 @@
 package ufma.br.sistema_monitoria_ufma.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,8 +17,10 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class Atividade {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "atividade_id")
+    private Integer id;
 
     private String titulo;
     private String descricao;

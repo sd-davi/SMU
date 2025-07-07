@@ -3,14 +3,18 @@ package ufma.br.sistema_monitoria_ufma.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
+
 public class AtividadeRespostaId implements Serializable {
-    private Long atividade;
-    private Long aluno;
+    @Column(name = "atividade_id")
+    private Integer atividade;
+    @Column(name = "aluno_id")
+    private Integer aluno;
 
     public AtividadeRespostaId() {
     }
 
-    public AtividadeRespostaId(Long atividade, Long aluno) {
+    public AtividadeRespostaId(Integer atividade, Integer aluno) {
         this.atividade = atividade;
         this.aluno = aluno;
     }

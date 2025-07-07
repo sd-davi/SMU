@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 public class Monitor{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_monitor")
+    @Column(name = "monitor_id")
     private Integer id;
     
     private String nome;
@@ -44,11 +44,11 @@ public class Monitor{
     private String codigo_verificacao;
 
     @ManyToOne
-    @JoinColumn(name = "id_curso")
+    @JoinColumn(name = "curso_id")
     private Curso curso;
 
     @ManyToOne
-    @JoinColumn(name = "id_disciplina")
+    @JoinColumn(name = "disciplina_id")
     private Disciplina disciplina;
 
     @OneToMany(mappedBy="monitor", fetch= FetchType.LAZY)
