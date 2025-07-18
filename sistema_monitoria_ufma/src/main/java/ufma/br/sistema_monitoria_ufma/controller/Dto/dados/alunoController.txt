@@ -1,0 +1,20 @@
+    // Listar monitorias do aluno (usando DTO)
+    @GetMapping("/{alunoId}/monitorias")
+    public ResponseEntity<List<AlunoMonitoriaResumoDTO>> listarMonitorias(@PathVariable Integer alunoId) {
+        List<AlunoMonitoriaResumoDTO> monitorias = service.listarMonitoriasDoAluno(alunoId);
+        return ResponseEntity.ok(monitorias);
+    }
+
+    // Inscrever aluno numa monitoria
+    @PostMapping("/monitorias/inscrever")
+    public ResponseEntity<String> inscreverEmMonitoria(@RequestBody AlunoMonitoriaDTO dto) {
+        service.inscreverEmMonitoria(dto.getAlunoId(), dto.getMonitoriaId());
+        return ResponseEntity.ok("Aluno inscrito com sucesso.");
+    }
+
+    // Cancelar inscrição do aluno
+    @DeleteMapping("/monitorias/cancelar")
+    public ResponseEntity<String> cancelarInscricao(@RequestBody AlunoMonitoriaDTO dto) {
+        alunoService.cancelarInscricaoNaMonitoria(dto.getAlunoId(), dto.getMonitoriaId());
+        return ResponseEntity.ok("Inscrição cancelada.");
+    }

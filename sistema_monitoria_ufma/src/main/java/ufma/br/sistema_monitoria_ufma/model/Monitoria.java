@@ -40,4 +40,6 @@ public class Monitoria {
 
     @ManyToMany(mappedBy = "monitorias")
     Set<Aluno> alunos;
+
+    
 }
