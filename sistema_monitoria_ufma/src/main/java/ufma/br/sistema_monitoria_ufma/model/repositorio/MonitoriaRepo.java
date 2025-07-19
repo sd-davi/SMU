@@ -30,4 +30,6 @@ extends JpaRepository<Monitoria, Integer>{
     GROUP BY m
     """)
     List<MonitoriaComContagemDTO> listarMonitoriasComContagemDeAlunos();
+
+
 }

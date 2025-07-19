@@ -52,5 +52,5 @@ public class Monitor{
     private Disciplina disciplina;
 
     @OneToMany(mappedBy="monitor", fetch= FetchType.LAZY)
-    List<Disciplina> disciplinas;
+    List<Monitoria> monitorias;
 }

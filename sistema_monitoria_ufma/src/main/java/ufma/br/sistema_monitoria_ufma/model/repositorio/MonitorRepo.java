@@ -3,13 +3,12 @@ package ufma.br.sistema_monitoria_ufma.model.repositorio;
 import java.util.List;
 import java.util.Optional;
 
-import javax.management.monitor.Monitor;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import ufma.br.sistema_monitoria_ufma.model.Curso;
 import ufma.br.sistema_monitoria_ufma.model.Dto.MonitorResumoDTO;
+import ufma.br.sistema_monitoria_ufma.model.Monitor;
 
 
 public interface  MonitorRepo
@@ -20,6 +19,7 @@ extends JpaRepository<Monitor, Integer> {
     Optional<Monitor> findByMatricula(String matricula);
     //Optional<Monitor> findByCodigoVerificacao(String codigoVerificacao);
     List<Monitor> findByCurso(Curso curso);
+    boolean existsByMatricula(String matricula);
 
     //Função: Listar monitores com número de monitorias
 
